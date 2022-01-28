@@ -1,3 +1,5 @@
+-- Basic DB setup script for testing
+
 CREATE DATABASE Swag
 GO
 

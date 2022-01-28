@@ -4,5 +4,6 @@ WORKDIR /app
 
 COPY . .
 
+# NOT default port, so it doesn't interfere with local install
 EXPOSE 1633
 CMD /bin/bash ./entrypoint.sh

@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  ui:
+    container_name: yolo-swaggins-ui
+    image: yolo-swaggins-ui
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - BROWSER=none
+      - NODE_ENV=development
+    build: 
+      context: .
+      dockerfile: DockerFile_UI
+      target: development
+    volumes: 
+      - .:/app
+      - /app/node_modules
+    ports: 
+      - 3000:3000
+  sql:
+    container_name: yolo-swaggins-sql
+    image: yolo-swaggins-sql
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'y0l0Swaggins'
+    build:
+      context: ./DockerDB
+      dockerfile: DockerFile_SQL
+    ports:
+      - 1633:1433

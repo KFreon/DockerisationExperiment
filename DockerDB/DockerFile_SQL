@@ -1,0 +1,8 @@
+FROM mcr.microsoft.com/mssql/server:2019-latest
+
+WORKDIR /app
+
+COPY . .
+
+EXPOSE 1633
+CMD /bin/bash ./entrypoint.sh

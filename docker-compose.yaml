@@ -13,7 +13,7 @@ services:
       dockerfile: DockerFile_UI
       target: development
     volumes: 
-      - .:/app  # Mount these as volumes so we can watch them. 
+      - ./UI:/app  # Mount these as volumes so we can watch them. 
       - /app/node_modules  # I think this was so it didn't overwrite or copy or something...
     ports: 
       - 3000:3000
@@ -38,7 +38,8 @@ services:
       dockerfile: DockerFile_API
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://+:5555"
     ports: 
-      - 7004:7004
+      - 5555:5555
       # more?
       #- 5004:5004

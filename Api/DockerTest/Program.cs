@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,12 +13,11 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
 
-app.UseAuthorization();
+app.UseRouting();
+//app.UseCors(b => b.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 app.MapControllers();
 

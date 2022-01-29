@@ -26,12 +26,16 @@
     },
     "Docker": {
       "commandName": "Docker",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "sslPort": 51910,
+      "DockerfileRunArguments": "--name api --network yolo-swaggins_default",
+      "environmentVariables": {
+        "ASPNETCORE_URLS": "http://+:5555"
+      },
+      "httpPort": 5555,
       "publishAllPorts": true,
-      "useSSL": true,
-      "httpPort": 51909,
-      "sslPort":  51910
+      "useSSL": true
     },
     "WSL": {
       "commandName": "WSL2",

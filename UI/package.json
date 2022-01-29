@@ -13,7 +13,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "docker compose up ui",
+    "start": "react-scripts start",
+    "docker": "docker compose up ui",
     "start-sql": "docker compose up sql",
     "rebuild-ui": "docker compose up ui --build",
     "start-all": "docker compose up",

@@ -1,24 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddControllers();
-
+builder.Services.AddDbContext<YoloDbContext>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("SQL")));
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Weird. The type "HttpContext" is required to be able to return "item"
+// If the type is omitted (even though it's the same type?), you can't return "item", only Task
+// Even if you go "Task.FromResult(item)" nothing is sent back in the response.
+app.MapGet("/api/items", (HttpContext context) =>
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-app.UseStaticFiles();
-
-
-app.UseRouting();
-//app.UseCors(b => b.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-
-app.MapControllers();
+    var dbContext = context.RequestServices.GetRequiredService<YoloDbContext>();
+    var item = dbContext.Yolo.First();
+    return item;
+});
 
 app.Run();

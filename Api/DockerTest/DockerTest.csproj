@@ -6,9 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>d3d43283-7de5-44e2-8991-4637b94d49df</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
   </ItemGroup>
 

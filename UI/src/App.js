@@ -3,8 +3,10 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 function App() {
-  // const [text, setText] = useState('');
-  useEffect(() => fetch('/api/items').then(response => response.text()).then(data => console.log(data)));
+  const [text, setText] = useState('');
+  useEffect(() => fetch('/api/items').then(response => response.json()).then(data => {
+    setText(data.displayName);
+  }));
 
   return (
     <div className="App">
@@ -19,7 +21,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React from {text}
         </a>
       </header>
     </div>

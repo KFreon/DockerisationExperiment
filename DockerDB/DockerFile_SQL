@@ -4,6 +4,11 @@ WORKDIR /app
 
 COPY . .
 
+USER root
+RUN chmod +x ./initialise-sql.sh
+RUN chmod +x ./entrypoint.sh
+USER mssql
+
 # NOT default port, so it doesn't interfere with local install
 EXPOSE 1633
 CMD /bin/bash ./entrypoint.sh

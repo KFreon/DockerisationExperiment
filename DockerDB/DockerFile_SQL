@@ -4,11 +4,10 @@ WORKDIR /app
 
 COPY . .
 
+# Set scripts to be executable. Note that I had to change user for permissions.
 USER root
 RUN chmod +x ./initialise-sql.sh
 RUN chmod +x ./entrypoint.sh
 USER mssql
 
-# NOT default port, so it doesn't interfere with local install
-EXPOSE 1633
 CMD /bin/bash ./entrypoint.sh

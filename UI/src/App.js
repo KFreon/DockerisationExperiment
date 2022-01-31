@@ -3,10 +3,11 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 function App() {
+  // Basic setup to fetch data from the API and save it in state for use in the UI.
   const [text, setText] = useState('');
-  useEffect(() => fetch('/api/items').then(response => response.json()).then(data => {
-    setText(data.displayName);
-  }));
+  useEffect(() => fetch('/api/items')
+    .then(response => response.json())
+    .then(data => setText(data.displayName)));
 
   return (
     <div className="App">

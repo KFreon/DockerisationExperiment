@@ -1,6 +1,8 @@
-# This is the Dockerfile we use to build our stack.
-# The other one in the DockerTest folder is for Visual Studio
+# This is the Dockerfile we use during the main stack build.
+# NOT used for F5 in Visual Studio, that's in ./DockerTest
 
+# This is essentially what I got from doing Right Click --> Add --> Docker support on the project
+# I've just fixed the paths and exposed port 5555
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80

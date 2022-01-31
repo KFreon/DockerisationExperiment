@@ -3,5 +3,5 @@
 sleep 30s
 
 # Note the SA password here as well.
-# Ideally, I'd have an environment variable to handle this (maybe we can use the SA_PASSWORD one??)
+# Ideally, I'd have an environment variable to handle this (maybe we can use the SA_PASSWORD one?)
 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P y0l0Swaggins -d master -i /app/InitialSQL.sql

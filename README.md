@@ -20,3 +20,9 @@ Not much I know...but the "me" is coming through the API from the DB, all within
 
 # Debugging Experience  
 Should be able to open DockerTest.sln and F5 in Visual Studio, and do `npm run docker` in the UI folder to get the database and React running, which I think is pretty nice.  
+
+## Tests  
+Currently I have no test examples because I found out that Visual Studio (Jan 2022) doesn't support running tests in Docker from the Test Explorer.  
+The way I'd do it is have a setup just like this one that would run `dotnet test` on the Test project, then just run that as part of the build or whenever you want to look at it.  
+I decided that wasn't my favourite experience and got grumpy about it, so I just kinda stopped there.  
+`dotnet test` from Docker should work fine, and I think you can have it watch for code changes as well, so you could have it always running the tests; I just don't like it.  

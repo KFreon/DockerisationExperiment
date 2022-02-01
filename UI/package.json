@@ -14,11 +14,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "docker": "docker compose up ui",
-    "start-sql": "docker compose up sql",
-    "rebuild-ui": "docker compose up ui --build",
-    "start-all": "docker compose up",
-    "build": "docker compose up --build",
+    "docker": "docker compose -f ../docker-compose.yml up ui",
+    "start-sql": "docker compose -f ../docker-compose.yml up sql",
+    "rebuild-ui": "docker compose -f ../docker-compose.yml up ui --build",
+    "start-all": "docker compose -f ../docker-compose.yml up",
+    "build": "docker compose -f ../docker-compose.yml up --build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

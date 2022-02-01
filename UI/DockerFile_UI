@@ -8,3 +8,10 @@ COPY ./package-lock.json .
 
 RUN npm ci
 CMD ["npm", "start"]
+
+
+# Expose a dev node environment where we can execute npm commands
+# This is where you change npm packages, e.g.
+FROM node:14-alpine AS nodeexec 
+ENV NODE_ENV=development
+WORKDIR /app

@@ -43,3 +43,15 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ASPNETCORE_URLS: http://+:5555
+
+  # Allow us to execute node/npm commands without having node installed
+  # This is where you change npm packages (e.g.) with "docker compose run --rm nodeexec npm install cordova"
+  nodeexec: 
+    container_name: yolo-swaggins-nodeexec
+    image: yolo-swaggins-nodeexec
+    build:
+      context: ./UI
+      dockerfile: DockerFile_UI
+      target: nodeexec
+    volumes: 
+      - ./UI:/app

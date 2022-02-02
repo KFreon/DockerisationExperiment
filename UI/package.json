@@ -2,7 +2,7 @@
   "name": "yolo-swaggins",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://api:5555",
+  "proxy": "http://dockertest:5555",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

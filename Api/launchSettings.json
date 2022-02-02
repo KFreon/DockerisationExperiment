@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "dockertest",
+      "composeLaunchUrl": "http://localhost:3000",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "dockertest": "StartDebugging",
+        "sql": "StartWithoutDebugging",
+        "ui": "StartWithoutDebugging"
+      }
+    }
+  }
+}
